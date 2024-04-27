@@ -6,17 +6,13 @@ export default {
 	if (!found) {
 		return "/beancount"
 	}
-	console.log(found)
 	return found[1]
   },
 
   guessedURL: "",
 
   init() {   
-	console.log(this.guessedURL)
 	this.guessedURL = this.guessURL()
-	console.log(this.guessURL)
-	console.log("guessed base url:", this.guessedURL)
 	const spacer = document.querySelector("header > span.spacer"); 
 	const header = document.querySelector("header"); 
 
@@ -51,7 +47,6 @@ export default {
 	if (syncButton == null) {
 		return
 	}
-    console.log("Logging on every page load", window.location.pathname);
 	fetch(this.guessedURL + "/extension/FavaGitSync/status").
 		then(response => {
 			if (response.status == 250) {

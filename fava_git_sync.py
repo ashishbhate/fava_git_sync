@@ -22,7 +22,6 @@ class FavaGitSync(FavaExtensionBase):
         if st != 1:
             return Response("", 200)
 
-        print(Path(self.ledger.beancount_file_path).name)
         st = self._run(["git", "add", Path(self.ledger.beancount_file_path).name])
         if st != 0:
             return Response("", 500)
